@@ -1,0 +1,78 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long int
+#define ff(i,a,b) for( ll i=a;i<b;i++)
+#define fb(i,a,b) for( ll i=a;i>=b;i--)
+#define tc() int t; cin>> t; while (t--)
+#define MOD 1000000007
+#define vec vector<ll>
+#define pb push_back
+#define pf push_front
+#define pob pop_back
+#define it iterator
+int main()
+{ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+ll n;ll m;
+cin>>n>>m;
+int pk[n][m];
+ff(i,0,n)
+{
+    string s;cin>>s;
+    ff(j,0,m)
+    {
+        pk[i][j]=(int)s[j]-48;
+    }
+}
+// ff(i,0,n)
+// {
+//     ff(j,0,m)
+//     {
+//         cout<<pk[i][j]<<" ";
+//     }
+//     cout<<"\n";
+// }
+ll o=0;
+ff(i,0,n-1)
+{
+    ff(j,i+1,n)
+    {
+        ll t=0;
+          ff(k,0,m)
+          {
+              int c=pk[i][k]|pk[j][k];
+              t+=c;
+              //cout<<c<<"\n";
+          }
+          o=max(t,o);
+    }
+}
+cout<<o<<"\n";
+ll cnt=0;
+ff(i,0,n-1)
+{
+    ff(j,i+1,n)
+    {
+        ll t=0;
+          ff(k,0,m)
+          {
+              int c=pk[i][k]|pk[j][k];
+              t+=c;
+              //cout<<c<<"\n";
+          }
+          if(t==o)
+          {
+              cnt++;
+          }
+    }
+}
+cout<<cnt;
+return 0;}
+//PRATIK_SINGH!!
+
+// ░█████╗░░░░░░░░░░░░░░░
+// ██╔══██╗░░██╗░░░░██╗░░
+// ██║░░╚═╝██████╗██████╗
+// ██║░░██╗╚═██╔═╝╚═██╔═╝
+// ╚█████╔╝░░╚═╝░░░░╚═╝░░
+// ░╚════╝░░░░░░░░░░░░░░░
