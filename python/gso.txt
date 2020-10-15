@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Contact Us </title>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="assets/Images/gs.png" type="image/png" sizes="16x16">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+	<link rel="stylesheet" href="css/contact-page.css" type="text/css">
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+</head>
+    
+<body>
+    <img src="C:\Users\suman kumar\girlscript_chennai_website\assets\Images\contactus.jpg" />
+
+    <section class="main-section">
+        <div class="container pt-5 pb-5">
+            <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12 contact-form p-5 mb-5">
+                <h1 class="font-weight-bold mb-1">Get In <font style="color: #f47621">Touch.</font></h1>
+                <p class="ml-2 mb-5">Want to get in touch? We'd love to hear from you. Here's how you can reach us...</p>
+                <form class="form-horizontal" name="myForm" action="https://formspree.io/xyz@gmail.com" onsubmit="return validateForm()" method="post">
+                    <div class="form-group pb-3">
+                        <input type="text" id="name" name="name" placeholder=" " class="form-control no-border" required>
+                        <label class="form-control-placeholder" for="name">Name</label>
+                    </div>
+                    <div class="form-group pb-3">
+                        <input type="email" id="email" name="email" placeholder=" " class="form-control no-border" required>
+                        <label class="form-control-placeholder" for="email">Email Address</label>
+                    </div>
+                    <div class="form-group pb-3">
+                        <input type="text" id="subject" name="subject" placeholder=" " class="form-control no-border" required>
+                        <label class="form-control-placeholder" for="Subject">Subject</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" rows="4" class="form-control no-border" placeholder=" " required></textarea>
+                        <label class="form-control-placeholder" for="message">Your Message</label>
+                    </div>
+                    <div class="form-group mb-3">
+                        <button type="submit" class="btn btn-secondary btn-lg btn-block" id="submit-button" value="Send"> Send Message </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </section>
+</body>
+<script src="./scripts/app.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+    function validateForm() {
+      var nameVal = document.myForm.name.value;
+      var numbers = /^[0-9]+$/;
+      if(nameVal.match(numbers)){
+        alert("Please enter correct name")
+        document.myForm.name.focus();
+        return false;
+      }
+  
+      var emailID = document.myForm.email.value;
+      atpos = emailID.indexOf("@");
+      dotpos = emailID.lastIndexOf(".");
+           
+      if (atpos < 1 || ( dotpos - atpos < 2 )) {
+        alert("Please enter correct email ID")
+        document.myForm.email.focus() ;
+        return false;
+        }
+  
+      var subject = document.myForm.subject.value;
+      var message = document.myForm.message.value;
+      if(subject.length < 10) {
+              alert( "Minimum Length of subject must be 10" );
+              document.myForm.subject.focus() ;
+              return false;
+           }
+      if(message.length < 10) {
+              alert( "Minimum Length of message must be 10" );
+              document.myForm.message.focus() ;
+              return false;
+           }
+  
+        return( true );
+    }
+</script>
+</html>
